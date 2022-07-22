@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//importamos nuestras librerias
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
@@ -15,7 +16,7 @@ class Server {
         this.routes();
         this.start();
     }
-    //configuracion del servidor
+    //configuracion del servidor y el puerto en el que escuchara
     config() {
         this.app.set("port", process.env.PORT || 3500);
         this.app.use((0, morgan_1.default)("dev"));
@@ -23,7 +24,7 @@ class Server {
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: false }));
     }
-    //configuracion de rutas
+    //configuracion de rutas las cuales usara el frontend
     routes() {
         this.app.use("/", indexRoutes_1.default);
         this.app.use("/api/games", gamesRoutes_1.default);

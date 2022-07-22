@@ -1,3 +1,4 @@
+//importamos nuestras librerias
 import express, { Application } from "express";
 import morgan from "morgan";
 import cors from "cors";
@@ -14,7 +15,7 @@ class Server {
         this.start();
     }
 
-    //configuracion del servidor
+    //configuracion del servidor y el puerto en el que escuchara
     config(): void {
         this.app.set("port", process.env.PORT || 3500);
         this.app.use(morgan("dev"));
@@ -23,7 +24,7 @@ class Server {
         this.app.use(express.urlencoded({ extended: false }));
     }
 
-    //configuracion de rutas
+    //configuracion de rutas las cuales usara el frontend
     routes(): void {
         this.app.use("/", indexroutes);
         this.app.use("/api/games", gamesroutes);

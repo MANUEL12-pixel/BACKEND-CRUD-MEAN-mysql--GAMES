@@ -1,4 +1,5 @@
 export default {
+    //informacion de la base de datos a la que se conectara
     database: {
         host: process.env.DB_HOST || "localhost",
         user: process.env.BD_USER || "root",
